@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Utilidad;
 
 namespace ConsoleApp10
 {
@@ -30,6 +27,11 @@ namespace ConsoleApp10
                     n = numero;
 
             }
+            IFuncionalidad funcionalidad2 = new Escalera(n);
+            var list = funcionalidad2.ObtenerRespuesta();
+            Console.WriteLine("PRUEBA INTERFACES");
+            list.ForEach(i => Console.WriteLine("{0}", i));
+
             Console.WriteLine("Construyendo la escalera");
             //METODO 1
             Console.WriteLine("Agente 1");
@@ -105,6 +107,7 @@ namespace ConsoleApp10
         }
         static void Main(string[] args)
         {
+            
             bool resultado = false;
             int n = 0;
             Console.WriteLine("Digite la opcion correspondiente:");
@@ -130,8 +133,10 @@ namespace ConsoleApp10
             }
             if (n == 1)
                 Program.Punto1();
+
             else if (n == 2)
                 Program.Punto2();
+           
         }
         public static void Punto1()
         {
@@ -159,6 +164,10 @@ namespace ConsoleApp10
                 linea = Console.ReadLine();
                 a[i] = int.Parse(linea);
             }
+            IFuncionalidad funcionalidad1 = new Media(n, a);
+            var list = funcionalidad1.ObtenerRespuesta();
+            Console.WriteLine("PRUEBA INTERFACES");
+            list.ForEach(i => Console.WriteLine("{0}", i));
             //media aritmetica
             for (int i = 0; i < n; i++)
             {

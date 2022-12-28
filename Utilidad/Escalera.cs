@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Calculo
+namespace Utilidad
 {
     public class Escalera : IFuncionalidad
     {
@@ -17,12 +17,12 @@ namespace Calculo
         public List<string> Agente1()
         {
             List<string> lista = new List<string>();
-            int n = 0;
+            
             string line = "";
-            for (int numEscalera = 1; numEscalera <= n; numEscalera++)
+            for (int numEscalera = 1; numEscalera <= this.numeroEscalera; numEscalera++)
             {
                 line = "";
-                for (int i = n; i > numEscalera; i--)
+                for (int i = this.numeroEscalera; i > numEscalera; i--)
                 {
                     line += " ";
                 }
@@ -38,16 +38,16 @@ namespace Calculo
         public List<string> Agente2()
         {
             List<string> lista = new List<string>();
-            int n = 0;
+            
             string line = "";
-            for (int numEscalera = 1; numEscalera <= n; numEscalera++)
+            for (int numEscalera = 1; numEscalera <= this.numeroEscalera; numEscalera++)
             {
                 line = "";
                 for (int i = 1; i < numEscalera; i++)
                 {
                     line += " ";
                 }
-                for (int i = n; i >= numEscalera; i--)
+                for (int i = this.numeroEscalera; i >= numEscalera; i--)
                 {
                     line += "#";
                 }
@@ -62,7 +62,7 @@ namespace Calculo
             
             string line = "";
             int x, y, lado = this.numeroEscalera;
-            Console.WriteLine("Agente 3");
+            lista.Add("Agente 3");
             line = "";
 
             for (x = 0; x < lado; x++)
@@ -81,7 +81,7 @@ namespace Calculo
                 {
                     escalera += "##";
                 }
-                Console.WriteLine(espacios + escalera + line);
+                lista.Add(espacios + escalera + line);
             }
             for (x = 0; x < lado; x++)
             {

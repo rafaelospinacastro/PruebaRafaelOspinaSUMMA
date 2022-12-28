@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Calculo
+namespace Utilidad
 {
     public class Media : IFuncionalidad
     {
@@ -19,7 +19,7 @@ namespace Calculo
         public List<string> Agente1()
         {
             List<string> lista = new List<string>();
-            int n = 0, p, w, v;
+            int n = this.cantidadNumero, p, w, v;
             decimal l, s = 0, e, ma, mar, mm, aux, c = 0;
             //media aritmetica
             for (int i = 0; i < n; i++)
@@ -35,7 +35,7 @@ namespace Calculo
         {
             //mediana
             List<string> lista = new List<string>();
-            int n = 0, p, w, v;
+            int n = this.cantidadNumero, p, w, v;
             decimal l, s = 0, e, ma, mar, mm, aux, c = 0;
             for (int i = 0; i < n; i++)
             {
@@ -74,7 +74,7 @@ namespace Calculo
         public List<string> Agente3()
         {
             List<string> lista = new List<string>();
-            int n = 0, p, w, v;
+            int n = this.cantidadNumero, p, w, v;
             decimal l, s = 0, e, ma, mar, mm, aux, c = 0;
             for (int i = 0; i < n; i++)
             {//realizando las sumas del denominador
