@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp10
 {
-    class Program
+    public class Program
     {
-        public void Punto2()
+        public static void Punto2()
         {
             Console.WriteLine("Digite el numero para la escalera");
 
             bool resultado = false;
             int n = 0;
+            string line = "";
             while (resultado == false)
             {
                 var num = Console.ReadLine();
@@ -30,10 +31,11 @@ namespace ConsoleApp10
 
             }
             Console.WriteLine("Construyendo la escalera");
-            /*METODO 1
+            //METODO 1
+            Console.WriteLine("Agente 1");
             for (int numEscalera = 1; numEscalera <= n; numEscalera++)
             {
-                string line = "";
+                line = "";
                 for (int i = n; i > numEscalera; i--)
                 {
                     line += " ";
@@ -43,11 +45,12 @@ namespace ConsoleApp10
                     line += "#";
                 }
                 Console.WriteLine(line);
-            }*/
-            /*METODO 2
+            }
+            //METODO 2
+            Console.WriteLine("Agente 2");
             for (int numEscalera = 1; numEscalera <= n; numEscalera++)
             {
-                string line = "";
+                line = "";
                 for (int i = 1; i < numEscalera; i++)
                 {
                     line += " ";
@@ -57,10 +60,11 @@ namespace ConsoleApp10
                     line += "#";
                 }                
                 Console.WriteLine(line);
-            }*/
+            }
             /*METODO 3*/
             int x, y, lado = n;
-            string line = "";
+            Console.WriteLine("Agente 3");
+            line = "";
 
             for (x = 0; x < lado; x++)
             {
@@ -101,26 +105,56 @@ namespace ConsoleApp10
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Digite la cantidad de numeros:");
             bool resultado = false;
-            int n = 0, p, w, v;
-            decimal l,s = 0,e,ma,mar,mm,aux,c = 0;
-            
+            int n = 0;
+            Console.WriteLine("Digite la opcion correspondiente:");
+            Console.WriteLine("1 Obtener media");
+            Console.WriteLine("2 Escalera");
             while (resultado == false)
             {
                 var num = Console.ReadLine();
                 resultado = int.TryParse(num, out int numero);
                 if (resultado == false)
-                    Console.WriteLine("Valor invalido, debe ser numerico");                
+                    Console.WriteLine("Valor invalido, debe ser numerico");
                 else
-                    n = numero;                
+                    n = numero;
+                if(n > 2) 
+                {
+                    Console.WriteLine("Valor invalido, debe 1 o 2");
+                    resultado = false;
+                }
+                else
+                {
+                    resultado = true;
+                }  
+            }
+            if (n == 1)
+                Program.Punto1();
+            else if (n == 2)
+                Program.Punto2();
+        }
+        public static void Punto1()
+        {
+            Console.WriteLine("Digite la cantidad de numeros:");
+            bool resultado = false;
+            int n = 0, p, w, v;
+            decimal l, s = 0, e, ma, mar, mm, aux, c = 0;
+
+            while (resultado == false)
+            {
+                var num = Console.ReadLine();
+                resultado = int.TryParse(num, out int numero);
+                if (resultado == false)
+                    Console.WriteLine("Valor invalido, debe ser numerico");
+                else
+                    n = numero;
 
             }
             decimal[] a = new decimal[n];
-            
+
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine("Digite el " + (i+1) + " numero:");
+                Console.WriteLine("Digite el " + (i + 1) + " numero:");
                 string linea;
                 linea = Console.ReadLine();
                 a[i] = int.Parse(linea);
@@ -165,7 +199,7 @@ namespace ConsoleApp10
                 Console.WriteLine("La mediana es " + mm);
             }
             //media armonica
-            
+
             for (int i = 0; i < n; i++)
             {//realizando las sumas del denominador
                 s += 1 / a[i];
